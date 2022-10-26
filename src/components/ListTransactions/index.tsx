@@ -33,10 +33,10 @@ const ListTransactions = ({ iditem }: ListTransactionsProps) => {
           <Table striped bordered hover>
             < thead >
               <tr>
-                <th>Usuário</th>
-                <th>Quantidade</th>
-                <th>Memorando</th>
-                <th>Data da Transação</th>
+                <th className="text-center">Usuário</th>
+                <th className="text-center">Quantidade</th>
+                <th className="text-center">Memorando</th>
+                <th className="text-center">Data da Transação</th>
               </tr>
             </thead >
             <tbody>

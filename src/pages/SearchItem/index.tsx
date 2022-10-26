@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useForm, SubmitHandler } from "react-hook-form";
 import api from "../../services/api";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DeleteModal from "../../components/DeleteModal";
 
 export type Item = {
@@ -22,6 +22,7 @@ type SearchInput = {
 }
 
 const SearchItem = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState<Item[]>([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string>('');
@@ -70,10 +71,10 @@ const SearchItem = () => {
         <Table striped bordered hover>
           <thead>
             <tr>
-              <th>Código</th>
-              <th>Produto</th>
-              <th>Quantidade</th>
-              <th>Ações</th>
+              <th className="text-center">Código</th>
+              <th className="text-center">Produto</th>
+              <th className="text-center">Quantidade</th>
+              <th className="text-center">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -81,12 +82,12 @@ const SearchItem = () => {
               items.filter(item => item.active === 1).map(item => {
                 return (
                   <tr key={item.iditem}>
-                    <td>{item.iditem}</td>
+                    <td className="text-center">{item.iditem}</td>
                     <td>{item.description}</td>
-                    <td>{Math.round(item.curbal)}</td>
+                    <td className="text-center">{Math.round(item.curbal)}</td>
                     <td>
-                      <div className="tableActions">
-                        <Link to={`/produto/${item.iditem}`} style={{ "marginRight": "20px" }}>Editar</Link>
+                      <div className="text-center">
+                        <Button variant="success" onClick={() => navigate(`/produto/${item.iditem}`)} style={{ "marginRight": "20px" }}>Editar</Button>
                         <Button variant="danger" onClick={() => handleShowDeleteModal(item.iditem)}>Excluir</Button>
                       </div>
                     </td>

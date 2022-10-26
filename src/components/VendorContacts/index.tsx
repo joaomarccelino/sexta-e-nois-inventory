@@ -6,11 +6,11 @@ const VendorContacts = () => {
     <Table striped bordered hover className="mb-5">
       <thead>
         <tr>
-          <th>Código</th>
-          <th>Nome</th>
-          <th>Cargo</th>
-          <th>Telefone</th>
-          <th>Ações</th>
+          <th className="text-center">Código</th>
+          <th className="text-center">Nome</th>
+          <th className="text-center">Cargo</th>
+          <th className="text-center">Telefone</th>
+          <th className="text-center">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -18,12 +18,12 @@ const VendorContacts = () => {
           testContacts.map(item => {
             return (
               <tr>
-                <td>{item.id}</td>
+                <td className="text-center">{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.role}</td>
-                <td>{item.phone}</td>
+                <td className="text-center">{item.phone}</td>
                 <td>
-                  <div className="tableActions">
+                  <div className="text-center">
                     <a href={`/fornecedor/${item.id}`} style={{ "marginRight": "20px" }}>Editar</a>
                     <a href="/">Excluir</a>
                   </div>
